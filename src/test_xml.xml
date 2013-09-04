@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <ViewFlipper
+        android:id="@+id/storesFlipper"
+        android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_alignParentLeft="true" android:layout_alignParentRight="true" android:layout_below="@+id/include1" android:background="#FFFFFF">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/listWrap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:id="@+id/searchBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#99C030"
+                android:paddingBottom="3dip"
+                android:paddingTop="3dip">
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="60dip"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="3dip"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:onClick="showSearchFilterDialog"
+                    android:src="@drawable/branches_02" />
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="60dip"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="4dip"
+                    android:layout_toRightOf="@+id/imageView1"
+                    android:adjustViewBounds="true"
+                    android:onClick="showAllStoresOnMap"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/branches_01" />
+                <TextView
+                    android:id="@+id/title_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dip"
+                    android:text="סניפים וארועים"
+                    android:textColor="#000000" />
+            </RelativeLayout>
+            <ListView
+                android:id="@+id/storeList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF">
+                <!-- Preview: listitem=@layout/store_list_item -->
+            </ListView>
+        </LinearLayout>
+
+        <com.google.android.maps.MapView
+            android:id="@+id/mapview"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:clickable="true">
+        </com.google.android.maps.MapView>
+
+        <include
+            android:id="@+id/include1"
+            android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/store_details"/>
+    </ViewFlipper>
+
+    <include
+        layout="@layout/topbar"
+        android:id="@+id/RelativeLayout2_ref"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" />
+    <include
+        android:id="@+id/include1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/RelativeLayout2_ref"
+        android:layout_alignParentRight="true"
+        layout="@layout/searchbar" />
+    <include
+        android:id="@+id/menu_include"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="7dip"
+        android:layout_marginTop="40dip"
+        layout="@layout/topmenu" />
+
+</RelativeLayout>
